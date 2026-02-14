@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فال حافظ</title>
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .poem {
+            font-size: 1.2rem;
+            line-height: 2;
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            white-space: pre-wrap;
+            text-align: center;
+        }
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍃 فال حافظ 🍃</h1>
+        <div class="poem" id="poemDisplay">برای دیدن فال، دکمه را بزنید</div>
+        <button onclick="getRandomFal()">فال بگیر</button>
+        <div class="footer">هر بار یک غزل تصادفی از حافظ نشان داده می‌شود</div>
+    </div>
+
+    <script>
+        // لیست اشعار حافظ
+        const poems = [
+            {
+                title: "غزل شماره ۱",
+                text: "الا یا ایها الساقی ادر کأسا و ناولها\nکه عشق آسان نمود اول ولی افتاد مشکلها"
+            },
+            {
+                title: "غزل شماره ۲",
+                text: "دوش دیدم که ملایک در میخانه زدند\nگل آدم بسرشتند و به پیمانه زدند"
+            },
+            {
+                title: "غزل شماره ۳",
+                text: "صبا به لطف بگو آن غزال رعنا را\nکه سر به کوه و بیابان تو داده‌ای ما را"
+            },
+            {
+                title: "غزل شماره ۴",
+                text: "اگر آن ترک شیرازی به دست آرد دل ما را\nبه خال هندی‌اش بخشم سمرقند و بخارا را"
+            },
+            {
+                title: "غزل شماره ۵",
+                text: "بلبلی برگ گلی خوش رنگ در منقار داشت\nو اندر آن برگ و نوا خوش ناله‌های زار داشت"
+            }
+        ];
+
+        function getRandomFal() {
+            const randomIndex = Math.floor(Math.random() * poems.length);
+            const selected = poems[randomIndex];
+            document.getElementById('poemDisplay').innerHTML = 
+                `<strong>${selected.title}</strong><br><br>${selected.text}`;
+        }
+
+        // نمایش یک فال تصادفی هنگام بارگذاری صفحه
+        window.onload = getRandomFal;
+    </script>
+</body>
+</html>
